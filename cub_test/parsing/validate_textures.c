@@ -29,15 +29,15 @@ bool validate_textures(char **file_content, t_main_data *main_data)
 {
     int i;
     i = 0;
+    char **splitted;
     while(file_content[i] != NULL)
     {
-        char **splitted;
-        while(*file_content[i])
-        {
-            if (!ft_strncmp(file_content[i], "NO", 2) ||
-                !ft_strncmp(file_content[i], "SO", 2) ||
-                !ft_strncmp(file_content[i], "WE", 2) ||
-                !ft_strncmp(file_content[i], "EA", 2))
+       
+            // if (!ft_strncmp(file_content[i], "NO", 2) ||
+            //     !ft_strncmp(file_content[i], "SO", 2) ||
+            //     !ft_strncmp(file_content[i], "WE", 2) ||
+            //     !ft_strncmp(file_content[i], "EA", 2))
+            if(get_index(file_content[i]) != -1)
             {
                 splitted = ft_split(file_content[i], ' ');
                 if (!splitted || !splitted[0] || !splitted[1] || splitted[2] ||
@@ -46,11 +46,10 @@ bool validate_textures(char **file_content, t_main_data *main_data)
                 free_split(splitted);
             }
             i++;   
-        }
+    }
         i = 0;
         while(i < 4)
             if(main_data->textures[i++].path == NULL)
                 return (false);
-            }
         return(true);
 }
