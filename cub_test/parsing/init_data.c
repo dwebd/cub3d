@@ -9,6 +9,15 @@ bool init_main_data(t_main_data *main_data)
     {
         main_data->textures[i].path = NULL;
         main_data->textures[i].type = i; // 0 - NO, 1 - SO, 2 - WE, 3 - EA
+
+        main_data->floor.red = -1;
+        main_data->floor.green = -1;
+        main_data->floor.blue = -1;
+
+        main_data->ceiling.red = -1;
+        main_data->ceiling.green = -1;
+        main_data->ceiling.blue = -1;
+
         i++;
     }
     return (true);

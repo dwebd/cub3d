@@ -1,5 +1,42 @@
 #include "../inc/cub3d.h"
 
+int get_index(const char *str)
+{
+    if (!ft_strncmp(str, "NO", 2))
+    {
+        printf("[get_index] Found NO\n");
+        return NO;
+    }
+    if (!ft_strncmp(str, "SO", 2))
+    {
+        printf("[get_index] Found SO\n");
+        return SO;
+    }
+     if (!ft_strncmp(str, "WE", 2))
+    {
+        printf("[get_index] Found WE\n");
+        return WE;
+    }
+     if (!ft_strncmp(str, "EA", 2))
+    {
+        printf("[get_index] Found EA\n");
+        return EA;
+    }
+    if (!ft_strncmp(str, "F", 1))
+    {
+        printf("[get_index] Found F\n");
+        return F;
+    }
+    if (!ft_strncmp(str, "C", 1))
+    {
+        printf("[get_index] Found C\n");
+        return C;
+    }
+
+    printf("[get_index] No matching texture type found, return -1\n");
+    return (-1);
+}
+
 bool valid_file(char *input)
 {
     int fd;

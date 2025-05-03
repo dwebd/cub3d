@@ -16,4 +16,6 @@ void exit_program(char *message, void *data);
 bool valid_content(char **file_content, t_main_data *main_data);
 bool init_main_data(t_main_data *main_data);
 void free_split(char **split);
-bool validate_textures(char **file_content, t_main_data *main_data);
+bool validate_textures(char *file_content, t_main_data *main_data);
+bool validate_colors(char *file_content, t_main_data *main_data);
+int get_index(const char *str);

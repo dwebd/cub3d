@@ -6,14 +6,16 @@ void free_split(char **split)
         return;
     while (split[i])
         free(split[i++]);
+        printf("splitted %i parts\n", i);
     free(split);
 }
+
 void exit_program(char *message, void *data)
 {
     (void)data;
     if(message)
         printf("%s", message);
-    return ;
+    exit(EXIT_FAILURE);
 }
 
 void  clean_2darray(char **content)
@@ -43,6 +45,8 @@ bool is_empty_line(char *str)
 
     i = 0;
     n_symb = 0;
+    if(!str)
+        return(true);
     while (str[i] != '\0')
     {
         if(str[i] != '\t' && str[i] != ' ' && str[i] != '\n')

@@ -3,7 +3,9 @@ typedef enum e_type_textr
     NO = 0,
     SO,
     WE,
-    EA
+    EA, 
+    F,
+    C
 } t_type_textr;
 
 typedef enum e_map_digit{

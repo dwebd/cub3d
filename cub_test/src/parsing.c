@@ -35,19 +35,32 @@ bool parse_content(char *input, char ***file_content)
     
     i = 0;
     line = NULL;
+    printf(">>> [parse_content] Start\n");
     if((lines_counter(input, &nbr_lines, &empty_lines)) == false)
-        return(false);
+    {
+        printf(">>> [parse_content] lines_counter failed\n");
+        return (false);
+    }
+    printf(">>> [parse_content] lines counted: %d (empty: %d)\n", nbr_lines, empty_lines);
     fd = open(input, O_RDONLY);
     if(fd < 0)
-        return(false);
-        *file_content = malloc(sizeof(char *) * (nbr_lines + 1));
-    if (!(*file_content)[i])
-        return(false);
+    {
+        printf(">>> [parse_content] cannot open file again\n");
+        return (false);
+    }
+    *file_content = malloc(sizeof(char *) * (nbr_lines + 1));
+    if (!(*file_content))
+    {
+        printf(">>> [parse_content] malloc failed\n");
+        return (false);
+    }
+    printf(">>> [parse_content] starting to read lines\n");
     while((line = get_next_line(fd)) != NULL)
     {
         (*file_content)[i] = ft_strdup(line);
-        if(!(*file_content)[0])
+        if(!(*file_content)[i])
         {
+            printf(">>> [parse_content] strdup failed at line %d\n", i);
             return(clean_2darray(*file_content), false);
         }
         i++;
@@ -55,5 +68,6 @@ bool parse_content(char *input, char ***file_content)
     }
     (*file_content)[i] = NULL;
     close(fd);
+    printf(">>> [parse_content] finished reading lines\n");
     return(true);
 }

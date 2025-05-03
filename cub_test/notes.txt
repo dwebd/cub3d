@@ -26,4 +26,39 @@ bool valid_content(char **file_content, t_main_data *main_data)
     return (true);
 }
 
+я сейчас только с текстурами работаю помнишь? мне нужно добавить  проверку на расширение .xpm
 
+Добавить проверку, что путь не пустой
+
+Добавить проверку, что путь реально открывается через open
+
+
+
+
+bool validate_textures(char **file_content, t_main_data *main_data)
+{
+    int i;
+    i = 0;
+    char **splitted;
+    while(file_content[i] != NULL)
+    {
+            // if (!ft_strncmp(file_content[i], "NO", 2) ||
+            //     !ft_strncmp(file_content[i], "SO", 2) ||
+            //     !ft_strncmp(file_content[i], "WE", 2) ||
+            //     !ft_strncmp(file_content[i], "EA", 2))
+            if(get_index(file_content[i]) != -1)
+            {
+                splitted = ft_split(file_content[i], ' ');
+                if (!splitted || !splitted[0] || !splitted[1] || splitted[2] ||
+                    !set_path(splitted, main_data))
+                return(free_split(splitted), false);
+                free_split(splitted);
+            }
+            i++;   
+    }
+        i = 0;
+        while(i < 4)
+            if(main_data->textures[i++].path == NULL)
+                return (false);
+        return(true);
+}
