@@ -32,6 +32,7 @@ bool validate_colors(char *file_content, t_main_data *main_data)
         printf("[validate_colors] Error: Extra characters after color\n");
         return (false);
     }
+    printf("[validate_colors] color validated successfully!\n");
     return (true);
 }
 

@@ -40,7 +40,7 @@ int get_index(const char *str)
         return C;
     }
 
-    printf("[get_index] No matching texture type found, return -1\n");
+    printf("[get_index] No matching texture or layer type found, return -1\n");
     return (-1);
 }
 
