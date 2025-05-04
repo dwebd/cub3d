@@ -62,3 +62,45 @@ bool validate_textures(char **file_content, t_main_data *main_data)
                 return (false);
         return(true);
 }
+
+
+char *set_color_value(char *line, int *value, bool expect_comma)
+{
+    if (!line || !ft_isdigit(*line))
+    {
+        printf("[set_color_value] Error: Expected digit, got '%c'\n", *line);
+        return NULL;
+    }
+
+    *value = ft_atoi(line);
+    if (*value < 0 || *value > 255)
+    {
+        printf("[set_color_value] Error: Value must be between 0-255\n");
+        return NULL;
+    }
+
+    line = skip_digits(line);
+    line = skip_tab_spaces(line);
+
+    if (expect_comma)
+    {
+        if (*line != ',')
+        {
+            printf("[set_color_value] Error: Missing comma after value\n");
+            return NULL;
+        }
+        line++; // пропускаем запятую
+        line = skip_tab_spaces(line);
+    }
+    else
+    {
+        // после последнего числа не должно быть ничего (кроме пробелов/табов/конца строки)
+        if (*line == ',')
+        {
+            printf("[set_color_value] Error: Unexpected comma after last value\n");
+            return NULL;
+        }
+    }
+
+    return line;
+}
