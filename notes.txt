@@ -62,3 +62,18 @@ bool validate_textures(char **file_content, t_main_data *main_data)
                 return (false);
         return(true);
 }
+
+проверка для floor & ceiling
+
+void print_color_status(t_main_data *main_data)
+{
+    printf("=== FLOOR COLOR ===\n");
+    printf("Red:   %d\n", main_data->floor.red);
+    printf("Green: %d\n", main_data->floor.green);
+    printf("Blue:  %d\n", main_data->floor.blue);
+
+    printf("=== CEILING COLOR ===\n");
+    printf("Red:   %d\n", main_data->ceiling.red);
+    printf("Green: %d\n", main_data->ceiling.green);
+    printf("Blue:  %d\n", main_data->ceiling.blue);
+}
