@@ -36,6 +36,8 @@ bool valid_content(char **file_content, t_main_data *main_data)
                 return(false);
             i++;
         }
+        else 
+            return(false);
         if (i == 6)
             break;
         j++;

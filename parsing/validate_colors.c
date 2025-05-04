@@ -13,6 +13,11 @@ bool validate_colors(char *file_content, t_main_data *main_data)
         printf("[validate_colors] Error: should start with 'F' or 'C'\n");
         return (false);
     }
+    if(layer->is_set)
+    {
+        printf("[validate_colors] Error: duplicate colors\n");
+        return (false);
+    }
 
     file_content += 1; // пропускаем 'F' или 'C'
     file_content = skip_tab_spaces(file_content); // пропускаем пробелы перед числами
@@ -32,6 +37,7 @@ bool validate_colors(char *file_content, t_main_data *main_data)
         printf("[validate_colors] Error: Extra characters after color\n");
         return (false);
     }
+    layer->is_set = true;
     printf("[validate_colors] color validated successfully!\n");
     return (true);
 }

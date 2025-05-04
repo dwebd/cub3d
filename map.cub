@@ -1,9 +1,19 @@
 NO ./1234.xpm
 EA ./path_to_the_south_texture.xpm
 SO ./path_to_the_south_texture.xpm
-WE ./path_to_the_west_texture.xpm
-C       1,    255,            30, 
-C       2,    255,            30,  
+WE ./path_to_the_west_texture.xpm 
+
+
+
+
+
+
+
+
+
+
+F 1    255         30,             
+C   2,    255,            30
 
 1111111111111111111111111
 1000000000110000000000001

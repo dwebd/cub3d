@@ -9,7 +9,7 @@ typedef enum e_type_textr
 } t_type_textr;
 
 typedef enum e_map_digit{
-    ZERO = 0,
+    ZERO = 0, 
     ONE,
     PLAYER,
     SPACE
@@ -26,6 +26,7 @@ typedef struct s_rgb
     int red;
     int green; 
     int blue;
+    bool is_set;
 } t_rgb;
 
 typedef struct s_main_data
