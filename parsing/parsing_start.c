@@ -15,6 +15,7 @@ bool valid_content(char **file_content, t_main_data *main_data)
         return(false);
     while(file_content && i < 6)
     {
+        file_content[j] = skip_tab_spaces(file_content[j]);
         if(is_empty_line(file_content[j]))
         {
             j++;
@@ -30,7 +31,7 @@ bool valid_content(char **file_content, t_main_data *main_data)
         }
         else if(index == 4 || index == 5)
         {
-            if(!validate_colors(file_content[i], main_data))
+            if(!validate_colors(file_content[j], main_data))
                 return(false);
             i++;
         }

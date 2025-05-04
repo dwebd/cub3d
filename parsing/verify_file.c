@@ -1,5 +1,12 @@
 #include "../inc/cub3d.h"
 
+char *skip_tab_spaces(char *line)
+{
+    while (*line == ' ' || *line == '\t')
+        line++;
+    return (line);
+}
+
 int get_index(const char *str)
 {
     if (!ft_strncmp(str, "NO", 2))
@@ -50,6 +57,7 @@ bool valid_file(char *input)
     close(fd);
     return(true);
 }
+
 bool check_file_format(char *input)
 {
     size_t len;
