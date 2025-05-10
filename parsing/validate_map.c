@@ -1,6 +1,19 @@
 #include "../inc/cub3d.h"
-bool store_map(char **map_lines, int j, t_main_data main_data)
+static bool store_map(char **map_lines, int j, t_main_data *main_data)
 {
+    int index;
+    index = 0;
+    if(!main_data->map_height || main_data->map_height < 3)
+        return(false);
+    main_data->maplines = malloc(sizeof(char *) * (main_data->map_height + 1));
+    if(!main_data->maplines)
+        return(false);
+    while(index < main_data->map_height)
+    {
+        main_data->maplines[index] = malloc(sizeof(char) * (main_data->map_width + 1));
+        if(!main_data->maplines[index])
+            return(false);
+    }
     
 }
 
