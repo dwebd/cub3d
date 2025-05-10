@@ -13,7 +13,7 @@ static bool store_map(char **map_lines, int j, t_main_data *main_data)
         main_data->maplines[index] = malloc(sizeof(char) * (main_data->map_width + 1));
         if(!main_data->maplines[index])
             return(false);
-        ft_strlcpy(main_data->maplines[index], map_lines[index], main_data->map_width + 1);
+        ft_strlcpy(main_data->maplines[index], map_lines[j], main_data->map_width + 1);
         while((int)ft_strlen(main_data->maplines[index]) < main_data->map_width)
             ft_strlcat(main_data->maplines[index], " ", main_data->map_width + 1);
         index++;

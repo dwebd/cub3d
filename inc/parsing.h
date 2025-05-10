@@ -7,6 +7,14 @@ typedef enum e_type_textr
     F,
     C
 } t_type_textr;
+typedef enum e_player
+{
+    N = 0,
+    S,
+    W,
+    E
+
+} t_player;
 
 typedef enum e_map_digit{
     ZERO = 0, 
