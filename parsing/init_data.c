@@ -13,7 +13,8 @@ bool init_main_data(t_main_data *main_data)
         main_data->floor.red = -1;
         main_data->floor.green = -1;
         main_data->floor.blue = -1;
-
+        main_data->floor.is_set = false;
+        main_data->ceiling.is_set = false;
         main_data->ceiling.red = -1;
         main_data->ceiling.green = -1;
         main_data->ceiling.blue = -1;

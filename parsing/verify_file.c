@@ -1,5 +1,24 @@
 #include "../inc/cub3d.h"
 
+char	*skip_empty_lines(int fd)
+{
+	char	*line;
+
+	line = get_next_line(fd);
+	if (line)
+	{
+		while (is_empty_line(line) == true)
+		{
+			if (line)
+				free(line);
+			line = get_next_line(fd);
+		}
+		if (line)
+			return (line);
+	}
+	return (NULL);
+}
+
 char *skip_tab_spaces(char *line)
 {
     while (*line == ' ' || *line == '\t')

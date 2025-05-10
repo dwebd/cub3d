@@ -21,5 +21,7 @@ int get_index(const char *str);
 char *skip_tab_spaces(char *line);
 char *skip_digits(char *line);
 char *skip_comma(char *line);
-char *set_color_value(char *line, int *value);
+char *skip_empty_lines(int fd);
+char *set_color_value(char *line, int *value, bool is_coma);
 bool validate_colors(char *file_content, t_main_data *main_data);
+bool validate_map(char **map_lines, int j, t_main_data *main_data);

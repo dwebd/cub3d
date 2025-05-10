@@ -17,13 +17,6 @@ int main(int ac, char **av)
         printf(">>> Stage 3: parsing content\n");
         if(!parse_content(av[1], &file_content))
             exit_program("Error: invalid content\n", NULL);
-        /* file_content contains*/
-        // int i = 0;
-        // while(file_content[i])
-        // {
-        //     printf("File_content contains: %s", file_content[i]);
-        //     i++;
-        // }
         printf(">>> Stage 4: validating content\n");
         if(!valid_content(file_content, &main_data))
             exit_program("Error: invalid content\n", NULL);
