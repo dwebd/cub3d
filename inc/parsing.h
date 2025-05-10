@@ -37,8 +37,8 @@ typedef struct s_main_data
     t_map_digit **map;
 
     char			**maplines;
-	size_t				map_height;
-	size_t				map_width;
+	int				map_height;
+	int			map_width;
 
     
 } t_main_data;
