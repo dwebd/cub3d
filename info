@@ -1,0 +1,121 @@
+printing initial file data:
+
+NO ./1234.xpm
+EA ./path_to_the_south_texture.xpm
+SO ./path_to_the_south_texture.xpm
+WE ./path_to_the_west_texture.xpm 
+
+F 1,  255, 30                  
+C   1,   255, 30
+
+
+
+
+
+
+
+
+
+
+
+
+
+0111111111111111111111111111111
+11111111000000000110000000000001
+1011000001110000000000001111111
+100100000000N0000000000001
+1111111110110000011100001
+1000000000110000011101111
+11111111111111111111111
+
+
+eof
+
+[get_index] Found NO
+index : 0
+[validate_textures] Checking line: NO ./1234.xpm
+[get_index] Found NO
+[validate_textures] Splitted parts: NO | ./1234.xpm
+[get_index] Found NO
+index = 0
+[set_path] Checking path validity: ./1234.xpm
+temp aysha checking ./1234.xpm5
+checking len : 10
+[set_path] Saving path: ./1234.xpm into texture index 0
+splitted 2 parts
+[validate_textures] texture validated successfully!
+[get_index] Found EA
+index : 3
+[validate_textures] Checking line: EA ./path_to_the_south_texture.xpm
+[get_index] Found EA
+[validate_textures] Splitted parts: EA | ./path_to_the_south_texture.xpm
+[get_index] Found EA
+index = 3
+[set_path] Checking path validity: ./path_to_the_south_texture.xpm
+temp aysha checking ./path_to_the_south_texture.xpm5
+checking len : 31
+[set_path] Saving path: ./path_to_the_south_texture.xpm into texture index 3
+splitted 2 parts
+[validate_textures] texture validated successfully!
+[get_index] Found SO
+index : 1
+[validate_textures] Checking line: SO ./path_to_the_south_texture.xpm
+[get_index] Found SO
+[validate_textures] Splitted parts: SO | ./path_to_the_south_texture.xpm
+[get_index] Found SO
+index = 1
+[set_path] Checking path validity: ./path_to_the_south_texture.xpm
+temp aysha checking ./path_to_the_south_texture.xpm5
+checking len : 31
+[set_path] Saving path: ./path_to_the_south_texture.xpm into texture index 1
+splitted 2 parts
+[validate_textures] texture validated successfully!
+[get_index] Found WE
+index : 2
+[validate_textures] Checking line: WE ./path_to_the_west_texture.xpm 
+[get_index] Found WE
+[validate_textures] Splitted parts: WE | ./path_to_the_west_texture.xpm
+[get_index] Found WE
+index = 2
+[set_path] Checking path validity: ./path_to_the_west_texture.xpm
+temp aysha checking ./path_to_the_west_texture.xpm5
+checking len : 30
+[set_path] Saving path: ./path_to_the_west_texture.xpm into texture index 2
+splitted 2 parts
+[validate_textures] texture validated successfully!
+[get_index] Found F
+[validate_colors] color validated successfully!
+[get_index] Found C
+[validate_colors] color validated successfully!
+initial j:  7
+
+
+j после того как попала в функцию validate_map: j после loop пропуска пустых строк: 0111111111111111111111111111111post j:  20
+hello from get_map_size loop, j here = $0111111111111111111111111111111$
+hello from get_map_size loop, j here = $11111111000000000110000000000001$
+hello from get_map_size loop, j here = $1011000001110000000000001111111$
+hello from get_map_size loop, j here = $100100000000N0000000000001$
+hello from get_map_size loop, j here = $1111111110110000011100001$
+hello from get_map_size loop, j here = $1000000000110000011101111$
+hello from get_map_size loop, j here = $11111111111111111111111$
+
+
+map_height: 7
+map_width: 32
+j last: (null)
+ map: $0111111111111111111111111111111 $
+ map: $11111111000000000110000000000001$
+ map: $1011000001110000000000001111111 $
+ map: $100100000000N0000000000001      $
+ map: $1111111110110000011100001       $
+ map: $1000000000110000011101111       $
+ map: $11111111111111111111111         $
+
+
+map line in check void: $0111111111111111111111111111111 $
+map line in check void: $11111111000000000110000000000001$
+map line in check void: $1011000001110000000000001111111 $
+map line in check void: $100100000000N0000000000001      $
+map line in check void: $1111111110110000011100001       $
+map line in check void: $1000000000110000011101111       $
+map line in check void: $11111111111111111111111         $

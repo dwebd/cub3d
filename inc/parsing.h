@@ -1,25 +1,17 @@
 typedef enum e_type_textr
 {
     NO = 0,
-    SO,
+    SO = 1,
     WE,
     EA, 
     F,
     C
 } t_type_textr;
-typedef enum e_player
-{
-    N = 0,
-    S,
-    W,
-    E
-
-} t_player;
 
 typedef enum e_map_digit{
     ZERO = 0, 
     ONE,
-    PLAYER,
+    PLAYER , 
     SPACE
 } t_map_digit;
 
@@ -44,9 +36,12 @@ typedef struct s_main_data
     t_rgb ceiling;
     t_map_digit **map;
 
-    char			**maplines;
-	int				map_height;
-	int			map_width;
+    char	**maplines;
+	int		map_height;
+	int		map_width;
+    char    player;
+    float   player_x;
+    float   player_y;    
 
     
 } t_main_data;

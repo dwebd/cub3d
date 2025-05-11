@@ -43,7 +43,7 @@ bool valid_content(char **file_content, t_main_data *main_data)
         j++;
        
     }
-    printf("j before loop: %s", file_content[j]);
+    // printf("j before loop: %s", file_content[j]);
     // printf("=== FLOOR COLOR ===\n");
     // printf("Red:   %d\n", main_data->floor.red);
     // printf("Green: %d\n", main_data->floor.green);
@@ -54,8 +54,8 @@ bool valid_content(char **file_content, t_main_data *main_data)
     // printf("Green: %d\n", main_data->ceiling.green);
     // printf("Blue:  %d\n", main_data->ceiling.blue);
 
-        if (!validate_map(file_content, ++j, main_data))
-            return (false);
+    if (!parse_map(file_content, ++j, main_data))
+        return (false);
     i = 0;
     while (i < 4)
     {

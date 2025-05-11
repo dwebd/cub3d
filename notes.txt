@@ -103,3 +103,8 @@ char *set_color_value(char *line, int *value, bool expect_comma)
         return skip_tab_spaces(line);
     }
 }
+
+N 1
+E 1
+W -1
+S -1

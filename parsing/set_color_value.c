@@ -41,7 +41,7 @@ char *set_color_value(char *line, int *value, bool is_comma)
         return skip_tab_spaces(line);
     }
     else
-    {
+    {               
         // Последнее значение: нельзя допускать запятую
         if (*line == ',')
         {
