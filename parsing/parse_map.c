@@ -16,18 +16,18 @@ static bool store_map(char **map_lines, int j, t_main_data *main_data)
         ft_strlcpy(main_data->maplines[index], map_lines[j], main_data->map_width + 1);
         while((int)ft_strlen(main_data->maplines[index]) < main_data->map_width)
         {
-            dprintf(2, "current line:   %d and len is:  %d\n", index, (int)ft_strlen(main_data->maplines[index]));
+            // dprintf(2, "current line:   %d and len is:  %d\n", index, (int)ft_strlen(main_data->maplines[index]));
            ft_strlcat(main_data->maplines[index], " ", main_data->map_width + 1);
         }
         index++;
         j++;
     }
     index = 0;
-while (index < main_data->map_height)
-{
-    printf(" map: $%s$\n", main_data->maplines[index]);
-    index++;
-}
+// while (index < main_data->map_height)
+// {
+//     printf(" map: $%s$\n", main_data->maplines[index]);
+//     index++;
+// }
     return(true);
 }
 
@@ -38,9 +38,10 @@ while (index < main_data->map_height)
 
     height = 0;
     max_width = 0;
+
     while(map_lines[j])
     {
-        printf("hello from get_map_size loop, j here = $%s$\n", map_lines[j]);
+        // printf("hello from get_map_size loop, j here = $%s$\n", map_lines[j]);
         if(!map_lines[j] || is_empty_line(map_lines[j]))
         {
             printf("empty line in the map\n");
@@ -53,6 +54,11 @@ while (index < main_data->map_height)
     }
     main_data->map_height = height;
     main_data->map_width = max_width;
+     if(main_data->map_height < 3)
+        {
+            printf("map is too small\n");
+            return (false);
+        }
     printf("\n\nmap_height: %d\n", main_data->map_height);
     printf("map_width: %d\n", main_data->map_width);
     printf("j last: %s\n", map_lines[j]);
@@ -65,18 +71,17 @@ bool parse_map(char **map_lines, int j, t_main_data *main_data)
     (void)main_data;
 
     printf("initial j:  %d\n\n\n", j);
-    printf("j после того как попала в функцию validate_map: %s", map_lines[j]);
+    printf("j после того как попала в функцию validate_map: %s\n", map_lines[j]);
     while(is_empty_line(map_lines[j]))
         j++;
-    printf("j после loop пропуска пустых строк: %s", map_lines[j]);
+    printf("j после loop пропуска пустых строк: %s\n", map_lines[j]);
     
     printf("post j:  %d\n", j);
     if(!get_map_size(map_lines, j, main_data))
         return(false);
     if(!store_map(map_lines, j, main_data))
         return(false);
-    // find player
-    if(!validate_map(map_lines, j, main_data))
+    if(!validate_map(main_data))
         return(false);
     return (true);
 }

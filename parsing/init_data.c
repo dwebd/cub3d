@@ -18,6 +18,7 @@ bool init_main_data(t_main_data *main_data)
         main_data->ceiling.red = -1;
         main_data->ceiling.green = -1;
         main_data->ceiling.blue = -1;
+        main_data->player = 0;
 
         i++;
     }

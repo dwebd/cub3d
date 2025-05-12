@@ -25,4 +25,5 @@ char *skip_empty_lines(int fd);
 char *set_color_value(char *line, int *value, bool is_coma);
 bool validate_colors(char *file_content, t_main_data *main_data);
 bool parse_map(char **map_lines, int j, t_main_data *main_data);
-bool validate_map(char **map_lines, int j, t_main_data *main_data);
+bool validate_map(t_main_data *main_data);
+bool find_player(t_main_data *main_data);

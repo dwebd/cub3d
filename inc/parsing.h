@@ -8,12 +8,12 @@ typedef enum e_type_textr
     C
 } t_type_textr;
 
-typedef enum e_map_digit{
-    ZERO = 0, 
-    ONE,
-    PLAYER , 
-    SPACE
-} t_map_digit;
+// typedef enum e_map_digit{
+//     ZERO = 0, 
+//     ONE,
+//     PLAYER , 
+//     SPACE
+// } t_map_digit;
 
 typedef struct s_texture
 {
@@ -34,7 +34,7 @@ typedef struct s_main_data
     t_texture textures[4];
     t_rgb floor;
     t_rgb ceiling;
-    t_map_digit **map;
+    // t_map_digit **map;
 
     char	**maplines;
 	int		map_height;

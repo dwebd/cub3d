@@ -1,5 +1,42 @@
 #include "../inc/cub3d.h"
 
+bool find_player(t_main_data *main_data)
+{
+	int	i;
+	int j;
+
+	i = -1;
+	while (main_data->maplines[++i])
+	{
+		j = -1;
+		while (main_data->maplines[i][++j])
+		{
+			if (ft_strchr("NEWS", main_data->maplines[i][j]))
+			{
+				printf("after searching news: %c\n", main_data->maplines[i][j]);
+				if (!main_data->player)
+				{
+					main_data->player_y = i + 0.5;
+					main_data->player_x = j + 0.5;
+					main_data->player = main_data->maplines[i][j];
+					main_data->maplines[i][j] = '0';
+				}
+				else
+					{
+                        printf("extra player\n");
+                        return (false);
+                    }
+			}
+		}
+	}
+	if (!main_data->player)
+	{
+        printf("no player\n");
+        return (false);
+    }
+    return (true);
+}
+
 static bool	surroundings(int i, int j, char **map_lines, int invalid, t_main_data *main_data)
 {
     // if ((i == 0 || j == 0) && map_lines[i][j] == '0')
@@ -15,7 +52,7 @@ static bool	surroundings(int i, int j, char **map_lines, int invalid, t_main_dat
     return true;
 }
 
-static bool check_void(char **map_lines, t_main_data *main_data)
+static bool check_void(t_main_data *main_data)
 {
 	int		i;
     int     j;
@@ -23,7 +60,6 @@ static bool check_void(char **map_lines, t_main_data *main_data)
 
 	i = - 1;
     printf("\n\n");
-    (void)map_lines;
 	while (main_data->maplines[++i])
 	{
 		j = -1;
@@ -32,7 +68,7 @@ static bool check_void(char **map_lines, t_main_data *main_data)
 		{
 			if (main_data->maplines[i][j] == ' ')
 				invalid = '0';
-			// else if (main_data->maplines[i][j] == main_data.)
+			// else if (main_data->maplines[i][j] == main_data)
 			// 	invalid = ' ';
 			else
 				continue ;
@@ -46,10 +82,12 @@ static bool check_void(char **map_lines, t_main_data *main_data)
     return (true);
 }
 
-bool validate_map(char **map_lines, int j, t_main_data *main_data)
+bool validate_map(t_main_data *main_data)
 {
-    (void)j;
-    if (!check_void(map_lines, main_data))
+	if(!find_player(main_data))
+        return(false);
+    if (!check_void(main_data))
         return (false);
+	if(!get_coordinates)
     return (true);
 }
