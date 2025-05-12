@@ -1,4 +1,32 @@
 #include "../inc/cub3d.h"
+bool get_angle(t_main_data *main_data, char **maplines, int height)
+{
+		int	i;
+	int	j;
+
+	i = 0;
+	while (i < height)
+	{
+		j = 0;
+		while (maplines[i][j])
+		{
+			if (ft_strchr("NEWS", maplines[i][j]))
+			{
+				if (maplines[i][j] == 'N')
+					main_data->direction = (3 * M_PI) / 2;
+				else if (maplines[i][j] == 'E')
+					main_data->direction = 0;
+				else if (maplines[i][j] == 'W')
+					main_data->direction = M_PI;
+				else if (maplines[i][j] == 'S')
+					main_data->direction = M_PI / 2;
+			}
+			j++;
+		}
+		i++;
+	}
+	return(true);
+}
 
 bool find_player(t_main_data *main_data)
 {
@@ -88,6 +116,7 @@ bool validate_map(t_main_data *main_data)
         return(false);
     if (!check_void(main_data))
         return (false);
-	if(!get_coordinates)
+	if(!get_angle(main_data, main_data->maplines, main_data->map_height))
+		return (false);
     return (true);
 }

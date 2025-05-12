@@ -1,4 +1,27 @@
 #include "../inc/cub3d.h"
+static bool invalid_char(t_main_data *main_data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < main_data->map_height)
+	{
+		j = 0;
+		while (main_data->maplines[i][j])
+		{
+			if (!ft_strchr("NEWS01", main_data->maplines[i][j]))
+            {
+                printf("invalid characters in the map\n");
+                    return (false);
+            }
+			j++;
+		}
+		i++;
+	}
+	return(true);
+}
+
 static bool store_map(char **map_lines, int j, t_main_data *main_data)
 {
     int index;
@@ -80,6 +103,8 @@ bool parse_map(char **map_lines, int j, t_main_data *main_data)
     if(!get_map_size(map_lines, j, main_data))
         return(false);
     if(!store_map(map_lines, j, main_data))
+        return(false);
+    if(!invalid_char(main_data))
         return(false);
     if(!validate_map(main_data))
         return(false);

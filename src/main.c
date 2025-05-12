@@ -6,40 +6,21 @@ int main(int ac, char **av)
     char **file_content;
 
     file_content = NULL;
-    if(ac != 2)
-        exit_program("Error: Path of map should be given\n", NULL);
-
-    // printf(">>> Stage 1: checking file format\n");
-    if(!check_file_format(av[1]))
-        exit_program("Error: wrong format file: .cub\n", NULL);
-    // printf(">>> Stage 2: checking if file can be opened\n");
-    if(!valid_file(av[1]))
-        exit_program("Error: file   can not be opened\n", NULL);
-    // printf(">>> Stage 3: parsing content\n");
-    if(!parse_content(av[1], &file_content))
-        exit_program("Error: invalid content\n", NULL);
-    // printf(">>> Stage 4: validating content\n");
-    if(!valid_content(file_content, &main_data))
-        exit_program("Error: invalid content\n", NULL);
-    mlx_initialize(&main_data);
+    if(ac == 2)
+    {   
+        // printf(">>> Stage 1: checking file format\n");
+        if(!check_file_format(av[1]))
+            exit_program("Error: wrong format file: .cub\n", NULL);
+        // printf(">>> Stage 2: checking if file can be opened\n");
+        if(!valid_file(av[1]))
+            exit_program("Error: file   can not be opened\n", NULL);
+        // printf(">>> Stage 3: parsing content\n");
+        if(!parse_content(av[1], &file_content))
+            exit_program("Error: invalid content\n", NULL);
+        // printf(">>> Stage 4: validating content\n");
+        if(!valid_content(file_content, &main_data))
+            exit_program("Error: invalid content\n", NULL);
+    }
     clean(file_content);
     return(1);
-}
-
-void mlx_initialize(t_main_data *main_data)
-{
-    main_data->mlx = mlx_init();
-    if (!main_data->mlx)
-        exit_program("Error: mlx is not initiated", NULL); //check memory leak
-    main_data->win = mlx_new_window(main_data->mlx, WIN_H, WIN_W, "CUB3D");
-    if (!main_data->win)
-        exit_program("Error: Window is not created", NULL); //check memory leak
-    main_data->img.image = mlx_new_image(main_data->mlx, WIN_H, WIN_W);
-    if (!main_data->img.image)
-        exit_program("Error: Image is not created", NULL); //check memory leak
-    main_data->img.buff = mlx_get_data_addr(main_data->img.image,
-			&main_data->img.bpp, &main_data->img.line_l, &main_data->img.endian);//check values
-    
-
-
 }

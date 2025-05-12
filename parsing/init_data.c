@@ -19,6 +19,9 @@ bool init_main_data(t_main_data *main_data)
         main_data->ceiling.green = -1;
         main_data->ceiling.blue = -1;
         main_data->player = 0;
+        main_data->direction = 0;
+        main_data->player_x = -1;
+        main_data->player_y = -1;
 
         i++;
     }
