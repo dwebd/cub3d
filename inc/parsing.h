@@ -21,6 +21,17 @@ typedef struct s_texture
     char *path;
 } t_texture;
 
+typedef struct s_image
+{
+	void	*image;
+	char	*buff;
+	int		bpp;
+	int		line_l\;
+	int		endian;
+	int		w;
+	int		h;
+}	t_image;
+
 typedef struct s_rgb 
 {
     int red;
@@ -34,6 +45,9 @@ typedef struct s_main_data
     t_texture textures[4];
     t_rgb floor;
     t_rgb ceiling;
+    void	*mlx;
+	void	*win;
+	t_image	img;
     // t_map_digit **map;
 
     char	**maplines;

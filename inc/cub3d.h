@@ -28,3 +28,5 @@ bool validate_colors(char *file_content, t_main_data *main_data);
 bool parse_map(char **map_lines, int j, t_main_data *main_data);
 bool validate_map(t_main_data *main_data);
 bool find_player(t_main_data *main_data);
+
+void mlx_initialize(t_main_data *main_data);

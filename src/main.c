@@ -24,3 +24,18 @@ int main(int ac, char **av)
     clean(file_content);
     return(1);
 }
+
+void mlx_initialize(t_main_data *main_data)
+{
+    main_data->mlx = mlx_init();
+	if (!main_data->mlx)
+		exit_program("Error: Mlx cannot be initialized", NULL); //check memory leaks
+	main_data->win = mlx_new_window(main_data->mlx, WIN_W, WIN_H,"CUB3D");
+	if (!main_data->win)
+        exit_program("Error: window cannot be created", NULL); //check memory leaks
+	main_data->img.image = mlx_new_image(main_data->mlx, WIN_WIDTH, WIN_HEIGHT);
+	if (!main_data->img.image)
+        exit_program("Error: image cannot be created", NULL); //check memory leaks
+	main_data->img.buff = mlx_get_data_addr(main_data->img.image,
+			&main_data->img.bpp, &main_data->img.line_l, &main_data->img.endian);
+}
