@@ -8,6 +8,12 @@ typedef enum e_type_textr
     C
 } t_type_textr;
 
+typedef struct s_point
+{
+	int	x;
+	int	y;
+}	t_point;
+
 // typedef enum e_map_digit{
 //     ZERO = 0, 
 //     ONE,
@@ -26,7 +32,7 @@ typedef struct s_image
 	void	*image;
 	char	*buff;
 	int		bpp;
-	int		line_l\;
+	int		line_l;
 	int		endian;
 	int		w;
 	int		h;
@@ -40,6 +46,41 @@ typedef struct s_rgb
     bool is_set;
 } t_rgb;
 
+typedef struct s_ray
+{
+	double	camera_x;
+	double	dir_x;
+	double	dir_y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	double	sidedist_x;
+	double	sidedist_y;
+	double	deltadist_x;
+	double	deltadist_y;
+	double	wall_dist;
+	double	wall_x;
+	int		side;
+	int		wall_height;
+	int		drw_start;
+	int		drw_end;
+}	t_ray;
+
+typedef struct s_player
+{
+	char	dir;
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	plane_x;
+	double	plane_y;
+	int		has_moved;
+	int		move_x;
+	int		move_y;
+	int		rotate;
+}	t_player;
 typedef struct s_main_data
 {
     t_texture textures[4];
@@ -50,12 +91,14 @@ typedef struct s_main_data
 	t_image	img;
     // t_map_digit **map;
 
+    t_image	n_xpm;
+	t_image	e_xpm;
+	t_image	w_xpm;
+	t_image	s_xpm;
     char	**maplines;
 	int		map_height;
 	int		map_width;
-    char    player;
-    float   player_x;
-    float   player_y;  
+    t_player    player;//change in parsing 
     float   direction;  
 
     
